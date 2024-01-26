@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Momo",
+  "version": "1.0",
+  "description": "Reads content of a page when clicked",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://jira.zalando.net/*", 
+    "https://miro.com/*", 
+    "https://miro/*"
+  ],
+  "action": {
+    "default_icon": {
+      "16": "momo.png",
+      "48": "momo.png",
+      "128": "momo.png"
+    },
+    "default_title": "Momo - The Jira Miro Connector"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://miro/*", "https://miro.com/*"],
+      "js": ["miro-content-handler.js"]
+    },
+    {
+      "matches": ["https://jira.zalando.net/*"],
+      "js": ["jira-controller.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": ["https://jira.zalando.net/*"],
+      "resources": ["jira-style.css", "momo (1).png"]
+    },
+    {
+      "matches": ["https://miro/*", "https://miro.com/*"],
+      "resources": ["miro-sticky-creator.js"]
+    }
+  ]
+}
