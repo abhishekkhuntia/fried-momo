@@ -2,6 +2,7 @@ async function init() {
   const activateButton = document.getElementById('activate');
   const deactivateButton = document.getElementById('deactivate');
   const configureButton = document.getElementById('configure');
+  const momoImg = document.getElementById('momo-img');
   const { isMiroConfigSet } = await chrome.storage.local.get('isMiroConfigSet');
   const { MOMO_WINDOW } = await chrome.storage.session.get('MOMO_WINDOW');
 
@@ -10,15 +11,14 @@ async function init() {
     deactivateButton.style.display = 'none';
     showNotification('Please set the Miro and Jira links in the settings page!');
   } else if (MOMO_WINDOW) {
-    activateButton.style.display = 'none';
-    deactivateButton.style.display = 'block';
-    configureButton.style.display = 'none';
-    showNotification('Momo is active!');
+    activateButton.closest('.row').style.display = 'none';
+    deactivateButton.closest('.row').style.display = 'block';
+    configureButton.closest('.row').style.display = 'none';
+    momoImg.src = chrome.runtime.getURL('momo-active.png');
   } else {
-    activateButton.style.display = 'block';
-    deactivateButton.style.display = 'none';
-    configureButton.style.display = 'block';
-    showNotification();
+    activateButton.closest('.row').style.display = 'block';
+    deactivateButton.closest('.row').style.display = 'none';
+    configureButton.closest('.row').style.display = 'block';
   }
 
   document.getElementById('configure')
