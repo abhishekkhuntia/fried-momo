@@ -1,6 +1,7 @@
 async function init() {
   const activateButton = document.getElementById('activate');
   const deactivateButton = document.getElementById('deactivate');
+  const configureButton = document.getElementById('configure');
   const { isMiroConfigSet } = await chrome.storage.local.get('isMiroConfigSet');
   const { MOMO_WINDOW } = await chrome.storage.session.get('MOMO_WINDOW');
 
@@ -11,10 +12,12 @@ async function init() {
   } else if (MOMO_WINDOW) {
     activateButton.style.display = 'none';
     deactivateButton.style.display = 'block';
+    configureButton.style.display = 'none';
     showNotification('Momo is active!');
   } else {
     activateButton.style.display = 'block';
     deactivateButton.style.display = 'none';
+    configureButton.style.display = 'block';
     showNotification();
   }
 
@@ -28,6 +31,7 @@ async function init() {
     setTimeout(() => {
       activateButton.style.display = 'none';
       deactivateButton.style.display = 'block';
+      configureButton.style.display = 'none';
     }, 500);
   });
 
@@ -36,6 +40,7 @@ async function init() {
     setTimeout(() => { 
       activateButton.style.display = 'block';
       deactivateButton.style.display = 'none';
+      configureButton.style.display = 'block';
     }, 500);
   });
 }

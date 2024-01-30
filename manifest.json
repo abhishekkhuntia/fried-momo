@@ -17,6 +17,11 @@
     "https://miro.com/*", 
     "https://miro/*"
   ],
+  "icons": {
+    "16": "momo-inactive.png",
+    "48": "momo-inactive.png",
+    "128": "momo-inactive.png"
+  },
   "action": {
     "default_icon": {
       "16": "momo-inactive.png",
