@@ -128,7 +128,7 @@ function createGroupTabs(tabIds, title, color) {
 function addContextMenu() { 
   chrome.contextMenus.create({
     id: 'add-to-miro',
-    title: 'ଓ Add this to Miro',
+    title: 'Add this to Miro',
     contexts: ['link']
   });
 }
