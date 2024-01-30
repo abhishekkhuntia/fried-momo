@@ -1,14 +1,16 @@
 {
   "manifest_version": 3,
   "name": "Momo",
-  "version": "1.0",
-  "description": "Reads content of a page when clicked",
+  "version": "2.0",
+  "description": "The Jira Miro Connector for your estimation tool.",
   "permissions": [
     "activeTab",
     "scripting",
     "contextMenus",
     "storage",
-    "tabs"
+    "tabs",
+    "tabGroups",
+    "notifications"
   ],
   "host_permissions": [
     "https://jira.zalando.net/*", 
@@ -17,33 +19,29 @@
   ],
   "action": {
     "default_icon": {
-      "16": "momo.png",
-      "48": "momo.png",
-      "128": "momo.png"
+      "16": "momo-inactive.png",
+      "48": "momo-inactive.png",
+      "128": "momo-inactive.png"
     },
-    "default_title": "Momo - The Jira Miro Connector"
+    "default_title": "Momo - The Jira Miro Connector",
+    "default_popup": "./pages/popup/popup.html"
   },
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
-    {
-      "matches": ["https://miro/*", "https://miro.com/*"],
-      "js": ["miro-content-handler.js"]
-    },
-    {
-      "matches": ["https://jira.zalando.net/*"],
-      "js": ["jira-controller.js"]
-    }
+    
   ],
   "web_accessible_resources": [
     {
-      "matches": ["https://jira.zalando.net/*"],
-      "resources": ["jira-style.css", "momo (1).png"]
-    },
-    {
-      "matches": ["https://miro/*", "https://miro.com/*"],
-      "resources": ["miro-sticky-creator.js"]
+      "matches": ["<all_urls>"],
+      "resources": [
+        "jira-style.css", 
+        "momo (1).png", 
+        "miro-sticky-creator.js",
+        "momo-inactive.png",
+        "momo-active.png"
+      ]
     }
   ]
 }

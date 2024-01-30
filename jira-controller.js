@@ -3,6 +3,7 @@ function intializeJiraController() {
   addMomoStyling();
   attachCardClicks();
   connectMomo();
+  window.isHandlerLoaded = true;
 }
 
 function addMomoStyling() { 
@@ -28,11 +29,7 @@ function attachCardClicks() {
 }
 
 function handleCardClick(elem) {
-  const port = chrome.runtime.sendMessage({ action: 'add-to-miro-link-click', ...extractLinkData(elem) });
-
-  port.onDisconnect.addListener(function () { 
-    alert('Got Disconnected to Momo')
-  });
+  chrome.runtime.sendMessage({ action: 'add-to-miro-link-click', ...extractLinkData(elem) });
 }
 
 function connectMomo() { 
@@ -77,4 +74,6 @@ function handleNotification(req) {
   alert(req.message);
 }
 
-intializeJiraController();
+if (!window.isHandlerLoaded) {
+  intializeJiraController();
+}

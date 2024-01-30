@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+  <script src="./script.js"></script>
+</head>
+<body>
+  <div class="configuration-block">
+    <h1 class="config-header"><img src="../momo.png"/> Configurations</h1>
+    <p>Based on the URLs provided, momo will get automatically activated upon loading.</p>
+    <form class="config-form" id="configForm" name="configForm">
+      <div class="row">
+        <label for="miroLink">Base URL of Miro app</label>
+        <input type="text" id="miroLink" name="miroLink"><br><br>
+      </div>
+      <div class="row">
+        <label for="jiraLink">Base URL of Jira</label>
+        <input type="text" id="jiraLink" name="jiraLink"><br><br>
+      </div>
+      <div class="row">
+        <button type="submit" class="button submit-button">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

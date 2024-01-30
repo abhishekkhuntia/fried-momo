@@ -1,16 +1,11 @@
 function initializeMiroHandler() { 
-  const port = chrome.runtime.connect({ name: "houston-connect" });
-  port.onDisconnect.addListener(function () { 
-    alert('Got Disconnected to Momo')
-  });
-  
   injectExecuteScript();
   chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === "add-to-miro") {
       window.postMessage({action: 'add-to-miro', ...request}, '*');
     }
   });
-
+  window.isHandlerLoaded = true;
   console.log("Miro Handler Initialised!");
 }
 
@@ -23,5 +18,7 @@ function injectExecuteScript() {
   body.appendChild(node);
 }
 
-initializeMiroHandler();
+if (!window.isHandlerLoaded) {
+  initializeMiroHandler();  
+}
 

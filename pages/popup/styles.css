@@ -1,0 +1,39 @@
+body {
+  width: 300px;
+  height: max-content;
+  min-height: 150px;
+  font-family: Segoe UI, Helvetica Neue, sans-serif;
+  font-weight: 300;
+}
+
+.header{
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-weight: 300;
+  padding: 10px;
+}
+
+.header h4 {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 300;
+}
+
+.header img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.popup-container button {
+  width: 100%;
+}
+.popup-container {
+  padding: 20px;
+  margin-top: 10px;
+}
+.popup-container .row {
+  margin-bottom: 20px;
+}
