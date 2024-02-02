@@ -28,16 +28,16 @@ async function init() {
   
   activateButton.addEventListener('click', function () { 
     chrome.runtime.sendMessage({ action: 'open-momo-window' });
-    activateButton.style.display = 'none';
-    deactivateButton.style.display = 'block';
-    configureButton.style.display = 'none';
+    activateButton.closest('.row').style.display = 'none';
+    deactivateButton.closest('.row').style.display = 'block';
+    configureButton.closest('.row').style.display = 'none';
   });
 
   deactivateButton.addEventListener('click', function () { 
     chrome.runtime.sendMessage({ action: 'close-momo-window' });
-    activateButton.style.display = 'block';
-    deactivateButton.style.display = 'none';
-    configureButton.style.display = 'block';
+    activateButton.closest('.row').style.display = 'block';
+    deactivateButton.closest('.row').style.display = 'none';
+    configureButton.closest('.row').style.display = 'block';
   });
 }
 
