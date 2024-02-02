@@ -14,10 +14,10 @@ async function addStickyNode(nodeContent) {
     textAlign: 'center',
     textAlignVertical: 'middle', 
   },
-    x: window.lastStickyPosition.x,
-    y: window.lastStickyPosition.y,
-    shape: 'square',
-    width: STICKY_WIDTH,
+  x: window.lastStickyPosition.x,
+  y: window.lastStickyPosition.y,
+  shape: 'square',
+  width: STICKY_WIDTH,
   });
 
   window.lastStickyPosition.x += STICKY_WIDTH + 50;
