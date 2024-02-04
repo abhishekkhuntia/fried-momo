@@ -66,8 +66,9 @@ function extractLinkData(elem) {
   const container = elem.closest('.ghx-issue-content');
   const summary = container.querySelector('.ghx-summary');
   const link = container.querySelector('.js-key-link');
+  const labels = [...container.querySelectorAll('.ghx-label')];
 
-  return { summary: summary.innerText, link: link.href, linkLabel: link.innerText };
+  return { summary: summary.innerText, link: link.href, linkLabel: link.innerText, labels: labels.map(label => label.innerText)};
 }
 
 function handleNotification(req) {
